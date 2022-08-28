@@ -1,0 +1,32 @@
+﻿@model Category
+
+<form method="post" asp-action="DeletePost"> @* if the file name matches the action then the form automatically submits to it so it is optional to include the asp-action*@
+    @*<form method="post" asp-action="Delete">*@ @*if you wanted to keep action blank or name it delete then you can by see controller*@
+
+    <input asp-for="Id" hidden /> @* add hidden field to keep link to Model data so you can disable the input fields*@
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete Category</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+
+        @*Edit view automatically sends the id because the forms are not disabled. If you disable them then you dont get anything sent*@
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" disabled class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DisplayOrder"></label>
+            <input asp-for="DisplayOrder"disabled class="form-control" />
+
+        </div>
+        <button type="submit" class="btn btn-primary" sytle="width:150px">Delete</button>
+        <a asp-controller="Category" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to List</a>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+}
