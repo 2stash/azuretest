@@ -28,7 +28,7 @@ namespace BulkyBook.DataAccess.DbInitializer
                 }
             } catch( Exception ex)
             {
-
+                Console.WriteLine(ex);
             }
         }
     }
